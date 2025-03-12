@@ -22,9 +22,7 @@ public:
       //Destructor
       //deallocates the memory space occupied by the array p.
 
-    ptrMemberVarType (const ptrMemberVarType& otherObject);
-      //Copy constructor
-
+   
 private:
     int maxSize; //variable to store the maximum size of p
     int length;  //variable to store the number elements in p
