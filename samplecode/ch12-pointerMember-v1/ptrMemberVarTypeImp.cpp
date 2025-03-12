@@ -48,15 +48,4 @@ ptrMemberVarType::~ptrMemberVarType()
       delete [] p;
 }
 
-    //copy constructor
-ptrMemberVarType::ptrMemberVarType 
-                  (const ptrMemberVarType& otherObject)
-{
-    maxSize = otherObject.maxSize;
-    length = otherObject.length;
 
-    p = new int[maxSize];
- 
-    for (int i = 0; i < length; i++)
-         p[i] = otherObject.p[i];
-}
