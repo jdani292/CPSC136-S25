@@ -6,7 +6,7 @@ using namespace std;
 
 class rectangleType
 {
-    //overload the << operator
+    //overload the << and >> operators
 
 public:
     void setDimension(double l, double w);
