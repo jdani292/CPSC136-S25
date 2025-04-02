@@ -1,1 +1,4 @@
 the entire template class is defined in the header file
+To compile, do 
+
+g++ main.cpp listType.h
