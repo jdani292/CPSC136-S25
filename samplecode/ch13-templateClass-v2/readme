@@ -1,0 +1,5 @@
+The definition of the template class is separated into the header and cpp file
+
+To compile:
+
+g++ main.cpp listType.h
