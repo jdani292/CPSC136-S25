@@ -1,64 +1,47 @@
-//This program tests various operations of a linked stack
- 
 #include <iostream>
 #include "linkedStack.h"
-   
-using namespace std; 
 
-void testCopy(linkedStackType<int> OStack);
- 
+using namespace std;
+
 int main()
 {
     linkedStackType<int> stack;
-    linkedStackType<int> otherStack;
-    linkedStackType<int> newStack;
 
-        //Add elements into stack
-    stack.push(28);
-    stack.push(94);
-    stack.push(37);
+    cout << "Initial stack state (should be empty): " 
+         << (stack.isEmptyStack() ? "Empty" : "Not empty") << endl;
 
-        //Use the assignment operator to copy the elements
-        //of stack into newStack
-    newStack = stack;
+    cout << "\nPushing elements: 10, 20, 30" << endl;
+    stack.push(10);
+    stack.push(20);
+    stack.push(30);
 
-    cout << "After the assignment operator, newStack: " 
-         << endl; 
+    cout << "Top element (should be 30): " << stack.top() << endl;
 
-        //Output the elements of newStack
-    while (!newStack.isEmptyStack())
+    cout << "\nPopping top element..." << endl;
+    stack.pop();
+
+    cout << "Top element after pop (should be 20): " << stack.top() << endl;
+
+    cout << "\nPushing more elements: 40, 50, 60" << endl;
+    stack.push(40);
+    stack.push(50);
+    stack.push(60);  // linked stack has no fixed limit
+
+    cout << "\nCurrent stack (from top to bottom):" << endl;
+    while (!stack.isEmptyStack())
     {
-        cout << newStack.top() << endl;	
-        newStack.pop();
+        cout << stack.top() << " ";
+        stack.pop();
     }
+    cout << endl;
 
-        //Use the assignment operator to copy the elements
-        //of stack into otherStack
-    otherStack = stack;
+    cout << "\nStack state after popping all (should be empty): " 
+         << (stack.isEmptyStack() ? "Empty" : "Not empty") << endl;
 
-    cout << "Testing the copy constructor." << endl;
+    cout << "\nCalling pop() on an empty stack (should show warning):" << endl;
+    stack.pop();  // test edge case
 
-    testCopy(otherStack);
-
-    cout << "After the copy constructor, otherStack: " << endl;
-
-    while (!otherStack.isEmptyStack())
-    {
-        cout << otherStack.top() << endl;	
-        otherStack.pop();
-    }
+    
 
     return 0;
-}
-  
-     //Function to test the copy constructor
-void testCopy(linkedStackType<int> OStack) 
-{
-    cout << "Stack in the function testCopy:" << endl;
-
-    while (!OStack.isEmptyStack())
-    {
-        cout << OStack.top() << endl;	
-        OStack.pop();
-    }
 }
