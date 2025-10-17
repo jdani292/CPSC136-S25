@@ -28,4 +28,4 @@ triangleType triangleShape(double a , double b, double c)
         return equilateral;
        
 
-}
+} 
